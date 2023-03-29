@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script>
+    window.html2canvas = html2canvas;
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function makePDF() {
+
+        var element = document.querySelector("#tables");
+        html2pdf().set({
+            margin: [10, 10], // Set top and bottom margins to 20mm
+        }).from(element).save();
+        // doc.setFont('Arial', 'normal', 11); // set font family, style, and size
+        //
+        // doc.html(element, {
+        //     callback: function (doc) {
+        //         doc.save("html2pdf.pdf");
+        //     },
+        //     margin: [10, 10, 10, 10],
+        //     x: 0,
+        //     y: 0,
+        // });
+
+        // html2canvas(document.querySelector("#tables"), {
+        //     allowTaint: true,
+        //     useCORS: true,
+        //     scale: 1,
+        // }).then(canvas => {
+        //
+        //     var img = canvas.toDataURL("image/png");
+        //     var imgWidth, imgHeight;
+        //     img.onload = function() {
+        //         var ratio = img.width / img.height;
+        //         if (ratio > 1) {
+        //             imgWidth = 100; // Set a default width
+        //             imgHeight = imgWidth / ratio;
+        //         } else {
+        //             imgHeight = 100; // Set a default height
+        //             imgWidth = imgHeight * ratio;
+        //         }
+        //         // Now add the image to the jsPDF document
+        //
+        //     };
+        //     var doc = new jsPDF();
+        //     doc.setFont('Arial');
+        //     doc.getFontSize(11);
+        //     doc.addImage(img, 'PNG', 10, 10, imgWidth, imgHeight);
+        //     doc.save('html2pdf');
+        // });
+    }
+  </script>
+
+  <style>
+    #tables {
+      font-family: Arial, Helvetica, sans-serif;
+      width: 50%;
+    }
+
+    #tables td, #tables th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      vertical-align: top;
+    }
+
+    #tables th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04AA6D;
+      color: white;
+    }
+    .recipes-title {
+      width: 100%;
+      text-transform: uppercase;
+      background-color: gray !important;
+    }
+    ul {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="makePDF()">save</button>
+
+  <div id="tables"></div>
+
+  <script>
+
+
+      const docPayload =   {
+          "data":{
+              "mealPlan":[
+                  {
+                      "day":1,
+                      "date":"2023-03-29",
+                      "calories":2217.14509396346,
+                      "meals":[
+                          {
+                              "calories":753.230430419875,
+                              "meal":"breakfast",
+                              "numOfServings":1,
+                              "recipe":{
+                                  "name":"Goat Cheese And Fresh Herb Omelet Rolls",
+                                  "mainImage":"https://storage.googleapis.com/sg-uploads/fd493d67744b4d0caa54f7bffec52844.jpg",
+                                  "numberOfServings":1,
+                                  "ingredientLines":[
+                                      "2 oz goat cheese",
+                                      "1 tbsp fresh parsley, chopped",
+                                      "1 tbsp chives, chopped",
+                                      "4 eggs",
+                                      "2 tbsp butter",
+                                      "2 tsp milk",
+                                      "Salt, to taste",
+                                      "Pepper, to taste"
+                                  ],
+                                  "instructions":[
+                                      "In a small bowl mix the goat cheese with the measured herbs until combined and set aside.",
+                                      "Whisk the eggs, milk, salt, and pepper in a medium bowl until pale yellow and evenly combined.",
+                                      "Melt the butter in an 8-inch nonstick frying pan over medium heat. Add the egg mixture and stir constantly with a rubber spatula, moving the eggs around the pan until they form small curds, about 2 minutes.",
+                                      "Use the spatula to spread the egg mixture evenly across the pan. Eggs should have a creamy consistency. Evenly spoon the goat cheese mixture down the middle third of the egg mixture.",
+                                      "Remove the pan from heat. Using the spatula, fold an omelet into a big roll. Place the omelet on a plate and cut it into small rolls. Serve warm."
+                                  ],
+                                  "nutrientsPerServing":{
+                                      "calories":753.23,
+                                      "fat":62.57,
+                                      "carbs":4.42,
+                                      "protein":43.1
+                                  }
+                              }
+                          },
+                          {
+                              "calories":151.86196,
+                              "meal":"snack",
+                              "numOfServings":1,
+                              "recipe":{
+                                  "name":"Instant Pot Steamed Artichokes",
+                                  "mainImage":"https://storage.googleapis.com/sg-uploads/3d33bf27e9dc478ca324b390f8c98065.jpg",
+                                  "numberOfServings":1,
+                                  "ingredientLines":[
+                                      "1/4 cup water",
+                                      "1 clove garlic",
+                                      "1 bay leaf",
+                                      "1/8 tsp salt",
+                                      "2 artichokes, trimmed and stemmed",
+                                      "1 tsbp lemon juice"
+                                  ],
+                                  "instructions":[
+                                      "Combine water, garlic, bay leaf, and salt inside a multi-functional pressure cooker.",
+                                      "Place steamer in the pot. Add artichokes, trimmed top facing up; drizzle with lemon juice. Close and lock the lid.",
+                                      "Select high pressure according to manufacturer\\'s instructions; set timer for 10 minutes. Allow 10 to 15 minutes for pressure to build.",
+                                      "Release pressure carefully using the quick-release method according to manufacturer\\'s instructions, about 5 minutes. Unlock and remove lid."
+                                  ],
+                                  "nutrientsPerServing":{
+                                      "calories":151.86,
+                                      "fat":0.45,
+                                      "carbs":28.35,
+                                      "protein":8.61
+                                  }
+                              }
+                          },
+                          {
+                              "calories":766.913982007708,
+                              "meal":"lunch",
+                              "numOfServings":1,
+                              "recipe":{
+                                  "name":"Stuffed Chicken With Spinach And Mushroom Sauce",
+                                  "mainImage":"https://storage.googleapis.com/sg-uploads/2aa154113db4452098bb3530f137483b.jpg",
+                                  "numberOfServings":3,
+                                  "ingredientLines":[
+                                      "18 oz chicken breasts",
+                                      "2 tbsp butter",
+                                      "2 cups baby spinach leaves",
+                                      "5 oz cream cheese",
+                                      "1 tbsp olive oil",
+                                      "\\u00bd onion, diced",
+                                      "2 garlic cloves, minced",
+                                      "12 ounces crimini mushrooms",
+                                      "\\u00bd cup chicken broth",
+                                      "\\u2154 cup heavy cream",
+                                      "Salt, to taste",
+                                      "Pepper, to taste"
+                                  ],
+                                  "instructions":[
+                                      "Cut about a 3-inch wide pocket into the thick side of each breast almost to the other side, but do not cut all the way through.",
+                                      "Heat butter in a large skillet over medium-low heat. Place the spinach in the skillet and saute the spinach for about 30 seconds. Remove from heat.",
+                                      "In a medium bowl, mix the cheese and spinach until combined. Stuff the chicken breasts with the spinach mixture and secure the breasts with toothpicks.",
+                                      "Place the breasts in the hot skillet and leave for 8 minutes. Turn the breasts over and cook for another 8 minutes. Remove from the pan and set aside.",
+                                      "Saute onion on olive oil until softened, about 3 minutes. Add mushrooms, salt, and pepper. Cook until mushrooms have released juices.",
+                                      "Add garlic and cook until fragrant, about 1 minute. Add the chicken broth and cream. Simmer for 5 minutes or until reduced by half.",
+                                      "Let simmer for 1 minute. Season with salt and pepper to taste. Add stuffed chicken breasts and serve."
+                                  ],
+                                  "nutrientsPerServing":{
+                                      "calories":766.91,
+                                      "fat":56.71,
+                                      "carbs":12.71,
+                                      "protein":51.43
+                                  }
+                              }
+                          },
+                          {
+                              "calories":545.138721535875,
+                              "meal":"dinner",
+                              "numOfServings":1,
+                              "recipe":{
+                                  "name":"Zoodle Salad With Grilled Halloumi ",
+                                  "mainImage":"https://storage.googleapis.com/sg-uploads/98888b5e89c24cfd9e822d326619ea24.jpg",
+                                  "numberOfServings":2,
+                                  "ingredientLines":[
+                                      "3 tsp olive oil",
+                                      "6 oz cherry tomatoes, halved",
+                                      "8 oz halloumi cheese",
+                                      "2 zucchini",
+                                      "Salt, to taste",
+                                      "Black pepper, to taste",
+                                      "6 oz arugula"
+                                  ],
+                                  "instructions":[
+                                      "Heat the olive oil in a large skillet over medium-high heat.",
+                                      "Add the tomato halves to the pan, shaking to distribute everything. Cook until they are beginning to soften and break down a bit, about 2 minutes.",
+                                      "Add the spiralized zucchini and cook, stirring constantly, until they are warm and just barely soft.",
+                                      "Add the halloumi on a grill and bake for 5 minutes.",
+                                      "Place arugula on a plate, top with zucchini, tomatoes, and  halloumi cheese. Spinkle with salt and pepper and serve."
+                                  ],
+                                  "nutrientsPerServing":{
+                                      "calories":545.14,
+                                      "fat":52.25,
+                                      "carbs":11.76,
+                                      "protein":6.96
+                                  }
+                              }
+                          }
+                      ]
+                  }
+              ]
+          }
+      }
+
+      const tableDiv = document.getElementById('tables');
+      docPayload.data.mealPlan.map((mealP, i) => {
+          let tableHTML = `
+            <h1>DAY: ${docPayload.data.mealPlan[i].day}</h1>
+            <table id="recipes">
+              ${docPayload.data.mealPlan[i].meals.map((meal) => `
+                <tr>
+                  <th class="recipes-title">
+                    ${meal.meal}
+                  </th>
+                </tr>
+                <tr>
+                  <th>Ingredients</th>
+                  <th>Instructions</th>
+                  <th>Macros</th>
+                  <th>Image</th>
+                </tr>
+                <tr>
+                  <td>
+                    <ul>
+                      ${meal.recipe.instructions.map(instruction => `
+                        <li>${instruction}</li>
+                      `).join('')}
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      ${meal.recipe.ingredientLines.map(ingredient => `
+                        <li>${ingredient}</li>
+                      `).join('')}
+                    </ul>
+                  </td>
+                  <td>
+                    calories: ${meal.recipe.nutrientsPerServing.calories} <br /><br />
+                    fat: ${meal.recipe.nutrientsPerServing.fat} <br /><br />
+                    carbs: ${meal.recipe.nutrientsPerServing.carbs} <br /><br />
+                    protein: ${meal.recipe.nutrientsPerServing.protein}
+                  </td>
+                  <td>
+                    <img src="${meal.recipe.mainImage}" style="max-width: 200px;"><br />
+                    ${meal.recipe.name}
+                  </td>
+                </tr>
+              `).join('')}
+            </table>
+    `;
+
+          tableDiv.innerHTML += tableHTML;
+      })
+
+
+  </script>
+</body>
+</html>
